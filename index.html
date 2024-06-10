@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReTro</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/dc3bfb6288.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="font-mulish">
+    <header class="max-w-6xl mx-auto py-5 px-2">
+        <div class="navbar bg-base-100 justify-between">
+            <div class="navbar-start">
+              <div class="dropdown">
+                <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                </div>
+                <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                    <li><a><img src="images/Frame 2.png" alt="" title="Home" class="size-10"></a></li>
+                    <li><a><img src="images/Frame 3.png" alt="" title="Tooltip" class="size-10"></a></li>
+                    <li><a><img src="images/Frame 4.png" alt="" title="Person" class="size-10"></a></li>
+                    <li><a><img src="images/Frame 5.png" alt="" title="Flag" class="size-10"></a></li>
+                </ul>
+              </div>
+              <a class="btn btn-ghost text-4xl font-extrabold">ReTro</a>
+            </div>
+            <div class="navbar-center hidden lg:flex">
+              <ul class="menu menu-horizontal px-1">
+                <li><a><img src="images/Frame 2.png" alt="" title="Home" class="size-10"></a></li>
+                    <li><a><img src="images/Frame 3.png" alt="" title="Tooltip" class="size-10"></a></li>
+                    <li><a><img src="images/Frame 4.png" alt="" title="Person" class="size-10"></a></li>
+                    <li><a><img src="images/Frame 5.png" alt="" title="Flag" class="size-10"></a></li>
+              </ul>
+            </div>
+            <div class="navbar-end  w-max">
+                <a class="btn bg-[#797DFC] px-10 rounded-3xl text-white text-lg border-none">Sign In</a>
+            </div>
+          </div>
+    </header>
+    <main class="max-w-6xl mx-auto px-2">
+        <section
+            class="bg-[url(images/bgbanner.png)] h-full py-5 lg:p-24 bg-no-repeat bg-cover bg-center bg-slate-800 rounded-3xl ">
+            <div class="flex flex-col lg:flex-row justify-between  gap-20 items-center">
+                <div class="lg:text-left text-center w-3/4">
+                    <h1 class="text-4xl lg:text-6xl font-semibold leading-normal text-white">Welcome to the <span
+                            class="text-[#757AF6]">ReTro</span> Forum</h1>
+                    <p class="text-lg leading-normal font-normal text-white">Share your favorite opinion and win and wp
+                        <br>forum coffee mug!
+                    </p>
+                    <div class="flex justify-between rounded-3xl w-full lg:w-max p-2 bg-white mt-10">
+                        <input type="text" id="search-input" class="outline-none rounded-l-3xl px-2 lg:px-5 py-3 w-full" placeholder="Search here anything">
+                        <button class="btn rounded-3xl bg-[#797DFC] text-white border-none px-10" onclick="handelSearch()">Search</button>
+                    </div>
+                </div>
+                <div class="rounded-lg bg-white text-black p-5 w-2/3 h-max ">
+                    <div class="flex w-full justify-between py-2 gap-5">
+                        <p class="text-2xl font-medium leading-relaxed">Registered Users</p>
+                        <p class="text-2xl font-medium leading-relaxed">01</p>
+                    </div>
+                    <div class="flex w-full justify-between py-2 gap-5">
+                        <p class="text-2xl font-medium leading-relaxed">Forum</p>
+                        <p class="text-2xl font-medium leading-relaxed">05</p>
+                    </div>
+                    <div class="flex w-full justify-between py-2 gap-5">
+                        <p class="text-2xl font-medium leading-relaxed">Topics</p>
+                        <p class="text-2xl font-medium leading-relaxed">01</p>
+                    </div>
+                    <div class="flex w-full justify-between py-2 gap-5">
+                        <p class="text-2xl font-medium leading-relaxed">Replies</p>
+                        <p class="text-2xl font-medium leading-relaxed">01</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="mt-20 ">
+            <div class="text-center">
+                <h1 class="text-5xl font-bold leading-relaxed">Let’s Discuss</h1>
+                <p class="font-inter text-lg leading-normal font-normal">Yes, you can run unit tests and view the
+                    results directly within the app. The <br>integrated testing features allow for a streamlined .</p>
+            </div>
+            <div class="ml-60 mt-10 hidden" id="loading-spinner">
+                <span class="loading loading-spinner loading-lg"></span>
+            </div>
+            <div class="flex flex-col-reverse lg:flex-row justify-between gap-5 mt-12 ">
+                
+                <div class="flex flex-col gap-10 w-3/5" id="all-post-container">
+                    
+                
+                </div>
+
+                <!------------------Mark as read section----------------->
+                <div class="bg-[#F3F3F4] p-5 rounded-3xl h-full w-2/5" id="mark-as-read-container" >
+                    <div class="flex justify-between py-5" >
+                        <h1 class="font-bold text-xl">Title</h1>
+                        <div class="flex gap-1 items-center">
+                            <img src="images/Frame.png" alt="" class="size-5">
+                            <p class="font-inter text-lg leading-normal font-normal"> Mark as read (<span id="read-count" >0</span>)</p>
+                        </div>
+                    </div>
+                
+                </div>
+            </div>
+        </section>
+        <section class="mt-20 ">
+            <div class="bg-[#12132D] py-5 rounded-3xl flex flex-col-reverse lg:flex-row justify-between ">
+                <div class="text-white text-center lg:text-start p-5 lg:p-20">
+                    <h1 class="font-black text-4xl leading-loose">Join Our Forum</h1>
+                    <p class="font-light text-base leading-normal">
+                        Share your favorite opinion and win and wp forum coffee mug! Yes, you can run unit tests and
+                        view the results directly within the app.
+                    </p>
+                    <button class="btn bg-[#797DFC] px-10 rounded-3xl text-white text-lg border-none mt-5">Registered
+                        Now</button>
+                </div>
+                <img src="images/joinforum.png" alt="" class="pt-10 w-full">
+            </div>
+        </section>
+        <section class="mt-20 ">
+            <div class="text-center">
+                <h1 class="text-5xl font-bold leading-relaxed">Latest Posts</h1>
+                <p class="font-inter text-lg leading-normal font-normal">Yes, you can run unit tests and view the
+                    results directly within the app. The <br>integrated testing features allow for a streamlined .</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-20" id="all-latest-post-container">
+
+            </div>
+        </section>
+    </main>
+    <footer class="max-w-full py-5 px-2 bg-[#F7F7F8] mt-20 ">
+        <div class="text-center p-5 lg:p-20">
+            <h1 class="text-black text-3xl font-extrabold leading-relaxed">ReTro</h1>
+            <p class="text-base leading-relaxed font-normal">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a <br>piece of
+                classical Latin literature from 45 BC</p>
+            <div class="flex gap-5 justify-center py-10">
+                <img src="images/1.png" alt="">
+                <img src="images/2 (1).png" alt="">
+                <img src="images/3.png" alt="">
+                <img src="images/4.png" alt="">
+            </div>
+            <hr>
+            <p class="text-base leading-relaxed font-light py-10">2017, All Rights Reserved.</p>
+        </div>
+    </footer>
+<script src="scripts/script.js"></script>
+</body>
+
+</html>
